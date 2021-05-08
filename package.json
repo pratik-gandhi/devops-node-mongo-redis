@@ -1,0 +1,19 @@
+{
+  "name": "devops-node-mongo-redis",
+  "version": "1.0.0",
+  "description": "Follow through of a youtube tutorial",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/pratik-gandhi/devops-node-mongo-redis"
+  },
+  "author": "Pratik Gandhi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
