@@ -1,0 +1,14 @@
+version: "3"
+services: 
+    node-app:
+        build: 
+            context: .
+            args: 
+                NODE_ENV: production
+        ports: 
+            - 5000:5000
+        environment: 
+            - MESSAGE=Production Hello World!!
+            - NODE_ENV=production
+            - PORT=5000
+        entrypoint: node index.js

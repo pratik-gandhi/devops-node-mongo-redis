@@ -1,0 +1,15 @@
+version: "3"
+services: 
+    node-app:
+        build: 
+            context: .
+            args: 
+                NODE_ENV: development
+        volumes: 
+            - ./:/app:ro
+            # Annonymous volume to not overwrite node_modules locally
+            - /app/node_modules 
+        environment: 
+            - MESSAGE=Dev Hello World!!
+            - NODE_ENV=development
+        entrypoint: npm run dev
