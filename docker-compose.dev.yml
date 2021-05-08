@@ -12,4 +12,13 @@ services:
         environment: 
             - MESSAGE=Dev Hello World!!
             - NODE_ENV=development
+            - MONGO_USER=admin
+            - MONGO_PASSWORD=changeme
         entrypoint: npm run dev
+    mongodb:
+        image: mongo
+        environment: 
+            - MONGO_INITDB_ROOT_USERNAME=admin
+            - MONGO_INITDB_ROOT_PASSWORD=changeme
+        volumes: 
+            - mongo-db:/data/db

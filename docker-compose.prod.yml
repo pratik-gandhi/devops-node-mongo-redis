@@ -11,4 +11,13 @@ services:
             - MESSAGE=Production Hello World!!
             - NODE_ENV=production
             - PORT=5000
+            - MONGO_USER=admin_prod
+            - MONGO_USER=changeme
         entrypoint: node index.js
+    mongodb:
+        image: mongo
+        environment: 
+            - MONGO_INITDB_ROOT_USERNAME=admin_prod
+            - MONGO_INITDB_ROOT_PASSWORD=changeme
+        volumes: 
+            - mongo-db:/data/db

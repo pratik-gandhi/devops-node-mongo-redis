@@ -1,4 +1,6 @@
 version: "3"
+volumes: 
+    mongo-db:
 services: 
     node-app:
         build: .
@@ -6,6 +8,15 @@ services:
             - 3000:3000
         environment: 
             - PORT=3000
-            - MESSAGE=Default Hello World!!        
+            - MESSAGE=Default Hello World!!    
+        depends_on: 
+            - mongodb    
         # env_file: 
         #     - ./.env
+    mongodb:
+        image: mongo
+        environment: 
+            - MONGO_INITDB_ROOT_USERNAME=admin
+            - MONGO_INITDB_ROOT_PASSWORD=changeme
+        volumes: 
+            - mongo-db:/data/db
