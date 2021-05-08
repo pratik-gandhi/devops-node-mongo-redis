@@ -14,4 +14,4 @@ COPY . ./
 EXPOSE 5000
 
 # Start index.js
-ENTRYPOINT [ "npm", "start"]
+ENTRYPOINT [ "npm", "run", "dev"]
