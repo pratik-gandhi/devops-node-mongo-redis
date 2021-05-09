@@ -1,6 +1,7 @@
 const express = require("express");
 
 const blogPostRouter = require("./routes/BlogPostRouter");
+const loginRouter = require("./routes/LoginRouter");
 const homeRouter = require("./routes/HomeRouter");
 const { connectWithRetry } = require("./services/MongoDBService");
 
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // Setup routes
 app.use("/api/v1/posts", blogPostRouter);
+app.use("/api/v1/authentication", loginRouter);
 app.use("/", homeRouter);
 
 const port = process.env.PORT || 5000;

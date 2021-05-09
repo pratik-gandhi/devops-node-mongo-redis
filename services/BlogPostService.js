@@ -24,9 +24,7 @@ const findPost = async (id) => {
 const createPost = async (post) => {
   try {
     post.id = null;
-    return await BlogPost.create(post, {
-        validateBeforeSave: true
-    });
+    return await BlogPost.create(post);
   } catch (err) {
     console.error(
       `Error occurred when creating post : ${post} : error : ${err}`

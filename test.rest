@@ -16,7 +16,7 @@ GET http://{{dev-host}}
 GET http://{{dev-host}}/{{posts-endpoint}}
 
 ###
-GET http://{{dev-host}}/{{posts-endpoint}}/6097a7d64cd237002b3f259c
+GET http://{{dev-host}}/{{posts-endpoint}}/6097a8274cd237002b3f259d
 
 ###
 POST http://{{dev-host}}/{{posts-endpoint}}
@@ -26,6 +26,14 @@ Content-Type: application/json
     "title" : "First blog post",
     "body" : "This is first blog post",
     "author": "Awesome author!"
+}
+
+###
+POST http://{{dev-host}}/{{posts-endpoint}}
+Content-Type: application/json
+
+{
+    "title" : "Wrong blog post"
 }
 
 ###
@@ -53,11 +61,11 @@ PATCH  http://{{dev-host}}/{{posts-endpoint}}/6097a8274cd237002b3f259d
 Content-Type: application/json
 
 {
-    "body" : "This is updated second blog post"
+    "body" : "This is once again updated second blog post"
 }
 
 ###
-PATCH  http://{{dev-host}}/{{posts-endpoint}}/6097a8274cd237002b3f259d
+PATCH  http://{{dev-host}}/{{]\[]]=;'';posts-endpoint}}/6097a8274cd237002b3f259d
 Content-Type: application/json
 
 {
@@ -66,3 +74,22 @@ Content-Type: application/json
 
 ###
 DELETE http://{{dev-host}}/{{posts-endpoint}}/6097a8fb4cd237002b3f259e
+
+###
+POST http://{{dev-host}}/api/v1/authentication/signup
+Content-Type: application/json
+
+{
+    "username": "author",
+    "password": "top-secret-password"
+}
+
+###
+
+POST http://{{dev-host}}/api/v1/authentication/login
+Content-Type: application/json
+
+{
+    "username": "author",
+    "password": "top-secret-password"
+}
