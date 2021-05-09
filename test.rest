@@ -80,8 +80,8 @@ POST http://{{dev-host}}/api/v1/authentication/signup
 Content-Type: application/json
 
 {
-    "username": "author",
-    "password": "top-secret-password"
+    "username": "new_author",
+    "password": "different-secret-password"
 }
 
 ###
@@ -92,4 +92,14 @@ Content-Type: application/json
 {
     "username": "author",
     "password": "top-secret-password"
+}
+
+###
+
+POST http://{{dev-host}}/api/v1/authentication/login
+Content-Type: application/json
+
+{
+    "username": "new_author",
+    "password": "different-secret-password"
 }

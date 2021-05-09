@@ -3,6 +3,7 @@ const loginService = require("../services/LoginService");
 const signUp = async (req, res) => {
   try {
     const user = await loginService.signup(req.body);
+    req.session.user = user;
     return res
       .status(201)
       .json({ error: false, data: { username: user.username } });
@@ -21,6 +22,7 @@ const login = async (req, res) => {
         .json({ error: false, messaged: "Wrong credentials" });
     }
 
+    req.session.user = user;
     return res.status(200).json({ error: false, messaged: "Logged in" });
   } catch (err) {
     res.status(500).json({ error: true, message: err });
