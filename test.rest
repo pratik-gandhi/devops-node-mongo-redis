@@ -1,0 +1,68 @@
+@hostname = localhost
+@dev-port = 3000
+@prod-port = 5000
+@dev-host = {{hostname}}:{{dev-port}}
+@prod-host = {{hostname}}:{{prod-port}}
+@contentType = application/json
+@createdAt = {{$datetime iso8601}}
+@modifiedBy = {{$processEnv USERNAME}}
+
+@posts-endpoint = api/v1/posts
+
+GET http://{{dev-host}}
+
+###
+
+GET http://{{dev-host}}/{{posts-endpoint}}
+
+###
+GET http://{{dev-host}}/{{posts-endpoint}}/6097a7d64cd237002b3f259c
+
+###
+POST http://{{dev-host}}/{{posts-endpoint}}
+Content-Type: application/json
+
+{
+    "title" : "First blog post",
+    "body" : "This is first blog post",
+    "author": "Awesome author!"
+}
+
+###
+POST http://{{dev-host}}/{{posts-endpoint}}
+Content-Type: application/json
+
+{
+    "title" : "Second blog post",
+    "body" : "This is second blog post",
+    "author": "Another author!"
+}
+
+###
+POST http://{{dev-host}}/{{posts-endpoint}}
+Content-Type: application/json
+
+{
+    "title" : "Third blog post",
+    "body" : "This is third blog post",
+    "author": "One more author!"
+}
+
+###
+PATCH  http://{{dev-host}}/{{posts-endpoint}}/6097a8274cd237002b3f259d
+Content-Type: application/json
+
+{
+    "body" : "This is updated second blog post"
+}
+
+###
+PATCH  http://{{dev-host}}/{{posts-endpoint}}/6097a8274cd237002b3f259d
+Content-Type: application/json
+
+{
+    "body" : "This is updated second blog post"
+}
+
+###
+DELETE http://{{dev-host}}/{{posts-endpoint}}/6097a8fb4cd237002b3f259e
