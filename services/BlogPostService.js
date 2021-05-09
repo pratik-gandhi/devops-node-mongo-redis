@@ -24,7 +24,9 @@ const findPost = async (id) => {
 const createPost = async (post) => {
   try {
     post.id = null;
-    return await BlogPost.create(post);
+    return await BlogPost.create(post, {
+        validateBeforeSave: true
+    });
   } catch (err) {
     console.error(
       `Error occurred when creating post : ${post} : error : ${err}`
@@ -36,7 +38,10 @@ const createPost = async (post) => {
 const updatePost = async (id, newPost) => {
   try {
     newPost.id = null;
-    return await BlogPost.findByIdAndUpdate(id, newPost);
+    return await BlogPost.findByIdAndUpdate(id, newPost, {
+        runValidators: true,
+        new: true // returns modified document, instead of original
+    });
   } catch (err) {
     console.error(
       `Error occurred when updating post with id : ${id} with contents ${newPost} : error : ${err}`
